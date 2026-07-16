@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Ultra Dashboard">
+<meta name="theme-color" content="#0b0d12">
+<title>50K Ultra Dashboard</title>
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<style>
+  :root { color-scheme: dark; }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: #0b0d12;
+    color: #e6e6ea;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  body {
+    padding: env(safe-area-inset-top) 0 calc(env(safe-area-inset-bottom) + 24px) 0;
+  }
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgba(11,13,18,0.9);
+    backdrop-filter: blur(10px);
+    padding: 14px 16px 10px 16px;
+    border-bottom: 1px solid #1f222b;
+  }
+  .topbar h1 {
+    font-size: 18px;
+    margin: 0 0 2px 0;
+  }
+  .topbar p {
+    margin: 0;
+    color: #8a8f9c;
+    font-size: 12px;
+  }
+  .install-banner {
+    margin: 10px 16px 0 16px;
+    background: #1c1f27;
+    border: 1px solid #2a2e38;
+    border-radius: 12px;
+    padding: 10px 12px;
+    font-size: 12px;
+    color: #c7cad2;
+    display: none;
+  }
+  .install-banner.show { display: block; }
+  .install-banner b { color: #4fd1c5; }
+  .content { padding: 16px; }
+  .stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  .stat {
+    background: #14161c;
+    border: 1px solid #22252f;
+    border-radius: 14px;
+    padding: 12px 14px;
+  }
+  .stat .label {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #8a8f9c;
+    margin-bottom: 5px;
+  }
+  .stat .value {
+    font-size: 19px;
+    font-weight: 700;
+    color: #f5f5f7;
+  }
+  .stat .value.accent { color: #ff8c42; }
+  .stat .value.accent2 { color: #4fd1c5; }
+  .section {
+    background: #14161c;
+    border: 1px solid #22252f;
+    border-radius: 16px;
+    padding: 16px;
+    margin-bottom: 16px;
+  }
+  .section-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: #f5f5f7;
+    margin: 0 0 12px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+  .chart-scroll {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 0 -16px 6px -16px;
+    padding: 0 16px;
+  }
+  .chart-scroll svg { display: block; }
+  .type-legend {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    font-size: 11px;
+    color: #c7cad2;
+    margin-top: 8px;
+  }
+  .type-legend .dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-right: 5px;
+  }
+  .table-scroll {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 0 -16px;
+    padding: 0 16px;
+  }
+  table { width: 100%; border-collapse: collapse; font-size: 12px; white-space: nowrap; }
+  thead th {
+    text-align: left;
+    padding: 8px 8px;
+    color: #8a8f9c;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 10px;
+    border-bottom: 1px solid #22252f;
+  }
+  tbody td { padding: 8px 8px; border-bottom: 1px solid #1a1c24; color: #d6d8de; }
+  tbody tr.current-week { background: rgba(79,209,197,0.10); }
+  tbody tr.race-week { background: rgba(255,140,66,0.12); }
+  tbody tr.past-week td { color: #646874; }
+  .phase-pill, .type-pill {
+    display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 10px; font-weight: 700;
+  }
+  .phase-Base { background: #1f3a52; color: #7fc4ff; }
+  .phase-Build { background: #3a2f1f; color: #ffc477; }
+  .phase-Peak { background: #3a1f2f; color: #ff89c4; }
+  .phase-Taper { background: #1f3a2a; color: #7fffb0; }
+  .phase-Restart { background: #2a2a2a; color: #aaa; }
+  .type-trail { background: #4fd1c5; color: #0b0d12; }
+  .type-hills { background: #ff8c42; color: #0b0d12; }
+  .type-road  { background: #7fc4ff; color: #0b0d12; }
+  .type-beach { background: #ffe066; color: #0b0d12; }
+  .type-walk  { background: #4a4e58; color: #c7cad2; }
+  .cutback-tag { margin-left: 5px; font-size: 9px; color: #ffd166; font-weight: 700; }
+  .effort-tag { font-size: 9px; color: #8a8f9c; font-style: italic; margin-left: 3px; }
+  .race-tag { color: #ff8c42; font-weight: 700; }
+  .delta-ok { color: #7fffb0; font-weight: 700; }
+  .delta-under { color: #ff8c8c; font-weight: 700; }
+  .source-manual { font-size: 9px; color: #8a8f9c; margin-left: 4px; }
+  .footnote {
+    font-size: 11px;
+    color: #6d7280;
+    text-align: center;
+    padding: 4px 16px 0 16px;
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <h1>🏔️ 50K Ultra Dashboard</h1>
+  <p>Race: Fri 23 Oct 2026 &middot; Restart: 11 Jul 2026 &middot; Tue/Thu/Fri/Sun</p>
+</div>
+
+<div id="installBanner" class="install-banner">
+  Tap <b>Share</b> → <b>Add to Home Screen</b> to install this as an app icon.
+</div>
+
+<div id="errorBanner" style="display:none; margin:10px 16px 0 16px; background:#3a1f1f; border:1px solid #5a2a2a; border-radius:12px; padding:10px 12px; font-size:12px; color:#ffb4b4;"></div>
+
+<div class="content">
+
+  <div class="stats-grid" id="statsGrid"></div>
+
+  <div class="section">
+    <div class="section-title">Weekly km — actual vs plan</div>
+    <div class="chart-scroll" id="chartScroll"></div>
+    <div class="type-legend" id="typeLegend"></div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Week-by-week plan</div>
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr><th>Wk</th><th>Phase</th><th>Dates</th><th>Tue</th><th>Thu</th><th>Fri</th><th>Sun</th><th>Total</th><th>Actual</th></tr>
+        </thead>
+        <tbody id="planTableBody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Daily log</div>
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr><th>Date</th><th>Day</th><th>Type</th><th>Dist</th><th>Pace</th><th>Target</th><th>Δ</th></tr>
+        </thead>
+        <tbody id="dailyTableBody"></tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+<div class="footnote">
+  Last updated 16 Jul 2026 · refreshed automatically once a day from Strava. Step counts are estimated from recorded cadence (not a real pedometer total).
+</div>
+
+<script>
+// ---- Static snapshot data (baked in — this file has no network access) ----
+const PLAN_WEEKS = [
+{"week":0,"phase":"Restart","start":"2026-07-06","end":"2026-07-12","planTotal":null,"isRaceWeek":false,"days":{}},
+{"week":1,"phase":"Base","start":"2026-07-13","end":"2026-07-19","planTotal":22,"isRaceWeek":false,"cutback":false,
+  "days":{"tue":{"km":5,"effort":"easy"},"thu":{"km":5,"effort":"easy"},"fri":{"km":4,"effort":"easy"},"sun":{"km":8,"effort":"long"}}},
+{"week":2,"phase":"Base","start":"2026-07-20","end":"2026-07-26","planTotal":27,"isRaceWeek":false,"cutback":false,
+  "days":{"tue":{"km":6,"effort":"easy"},"thu":{"km":6,"effort":"easy"},"fri":{"km":5,"effort":"easy"},"sun":{"km":10,"effort":"long"}}},
+{"week":3,"phase":"Base","start":"2026-07-27","end":"2026-08-02","planTotal":30,"isRaceWeek":false,"cutback":false,
+  "days":{"tue":{"km":6,"effort":"easy"},"thu":{"km":7,"effort":"easy"},"fri":{"km":5,"effort":"easy"},"sun":{"km":12,"effort":"long"}}},
+{"week":4,"phase":"Base","start":"2026-08-03","end":"2026-08-09","planTotal":22,"isRaceWeek":false,"cutback":true,
+  "days":{"tue":{"km":5,"effort":"easy"},"thu":{"km":5,"effort":"easy"},"fri":{"km":4,"effort":"easy"},"sun":{"km":8,"effort":"long"}}},
+{"week":5,"phase":"Build","start":"2026-08-10","end":"2026-08-16","planTotal":34,"isRaceWeek":false,"cutback":false,
+  "days":{"tue":{"km":7,"effort":"tempo"},"thu":{"km":8,"effort":"hills"},"fri":{"km":5,"effort":"easy"},"sun":{"km":14,"effort":"trail long"}}},
+{"week":6,"phase":"Build","start":"2026-08-17","end":"2026-08-23","planTotal":39,"isRaceWeek":false,"cutback":false,
+  "days":{"tue":{"km":8,"effort":"tempo"},"thu":{"km":8,"effort":"hills"},"fri":{"km":6,"effort":"easy"},"sun":{"km":17,"effort":"trail long"}}},
+{"week":7,"phase":"Build","start":"2026-08-24","end":"2026-08-30","planTotal":43,"isRaceWeek":false,"cutback":false,
+  "days":{"tue":{"km":8,"effort":"tempo"},"thu":{"km":9,"effort":"hills"},"fri":{"km":6,"effort":"easy"},"sun":{"km":20,"effort":"trail long"}}},
+{"week":8,"phase":"Build","start":"2026-08-31","end":"2026-09-06","planTotal":32,"isRaceWeek":false,"cutback":true,
+  "days":{"tue":{"km":6,"effort":"easy"},"thu":{"km":7,"effort":"hills"},"fri":{"km":5,"effort":"easy"},"sun":{"km":14,"effort":"trail long"}}},
+{"week":9,"phase":"Peak","start":"2026-09-07","end":"2026-09-13","planTotal":49,"isRaceWeek":false,"cutback":false,
+  "days":{"tue":{"km":8,"effort":"tempo"},"thu":{"km":10,"effort":"hills"},"fri":{"km":6,"effort":"easy"},"sun":{"km":25,"effort":"trail"}}},
+{"week":10,"phase":"Peak","start":"2026-09-14","end":"2026-09-20","planTotal":55,"isRaceWeek":false,"cutback":false,
+  "days":{"tue":{"km":9,"effort":"tempo"},"thu":{"km":10,"effort":"hills"},"fri":{"km":6,"effort":"easy"},"sun":{"km":30,"effort":"trail"}}},
+{"week":11,"phase":"Peak","start":"2026-09-21","end":"2026-09-27","planTotal":58,"isRaceWeek":false,"cutback":false,
+  "days":{"tue":{"km":9,"effort":"tempo"},"thu":{"km":10,"effort":"hills"},"fri":{"km":7,"effort":"easy"},"sun":{"km":32,"effort":"trail"}}},
+{"week":12,"phase":"Peak","start":"2026-09-28","end":"2026-10-04","planTotal":41,"isRaceWeek":false,"cutback":true,
+  "days":{"tue":{"km":7,"effort":"easy"},"thu":{"km":8,"effort":"easy"},"fri":{"km":6,"effort":"easy"},"sun":{"km":20,"effort":"trail"}}},
+{"week":13,"phase":"Taper","start":"2026-10-05","end":"2026-10-11","planTotal":34,"isRaceWeek":false,"cutback":false,
+  "days":{"tue":{"km":6,"effort":"tempo"},"thu":{"km":8,"effort":"easy"},"fri":{"km":5,"effort":"easy"},"sun":{"km":15,"effort":"long"}}},
+{"week":14,"phase":"Taper","start":"2026-10-12","end":"2026-10-18","planTotal":25,"isRaceWeek":false,"cutback":false,
+  "days":{"tue":{"km":5,"effort":"easy"},"thu":{"km":6,"effort":"easy"},"fri":{"km":4,"effort":"easy"},"sun":{"km":10,"effort":"long"}}},
+{"week":15,"phase":"Taper","start":"2026-10-19","end":"2026-10-25","planTotal":null,"isRaceWeek":true,"cutback":false,
+  "days":{"tue":{"km":4,"effort":"easy"},"thu":{"km":0,"effort":"rest"},"fri":{"km":3,"effort":"strides"},"sun":{"km":null,"effort":"RACE"}}}
+];
+
+// Individual runs/walks logged so far (baked-in snapshot from Strava + manual entries)
+const ENTRIES = [
+  { date: "2026-07-11", km: 4.2, type: "walk", pace: null, steps: null, isTraining: false, source: "manual" },
+  { date: "2026-07-12", km: 4.5, type: "trail", pace: 8.2, steps: 8680, isTraining: true, source: "strava" },
+  { date: "2026-07-14", km: 5.26, type: "road", pace: 6.47, steps: null, isTraining: true, source: "strava" },
+  { date: "2026-07-15", km: 5.46, type: "walk", pace: null, steps: 5844, isTraining: false, source: "strava" },
+  { date: "2026-07-16", km: 5.06, type: "road", pace: 6.14, steps: null, isTraining: true, source: "strava" }
+];
+
+const RACE_DATE = new Date("2026-10-23T00:00:00");
+const TODAY = new Date("2026-07-16T00:00:00"); // date of this snapshot
+
+const TYPE_COLORS = { trail: "#4fd1c5", hills: "#ff8c42", road: "#7fc4ff", beach: "#ffe066", other: "#c792ea", walk: "#4a4e58" };
+const TYPE_ORDER = ["trail","hills","road","beach","other"];
+
+function fmtDate(iso){ const d=new Date(iso+"T00:00:00"); return d.toLocaleDateString(undefined,{month:"short",day:"numeric"}); }
+function fmtDateFull(iso){ const d=new Date(iso+"T00:00:00"); return d.toLocaleDateString(undefined,{month:"short",day:"numeric",year:"numeric"}); }
+function dayName(iso){ const d=new Date(iso+"T00:00:00"); return d.toLocaleDateString(undefined,{weekday:"short"}); }
+function weekForDate(dateStr){
+  const d = new Date(dateStr.slice(0,10)+"T00:00:00");
+  for (const w of PLAN_WEEKS){
+    const ws=new Date(w.start+"T00:00:00"), we=new Date(w.end+"T00:00:00");
+    if (d>=ws && d<=we) return w;
+  }
+  return null;
+}
+function planDayFor(week, dateStr){
+  if (!week || !week.days) return null;
+  const dow = dayName(dateStr.slice(0,10)).toLowerCase();
+  return week.days[dow] || null;
+}
+function currentWeek(){ return weekForDate(TODAY.toISOString()); }
+
+// ---- Defensive error reporting: any failure below shows a visible message  ----
+// instead of silently leaving the page blank (there's no devtools on a phone).
+const errorBanner = document.getElementById("errorBanner");
+const failures = [];
+function safe(label, fn) {
+  try { fn(); }
+  catch (e) {
+    failures.push(label + ": " + (e && e.message ? e.message : e));
+    console.error(label, e);
+  }
+}
+
+// ---- Aggregate (computed once, shared by several sections below) ----
+let weekTypeTotals = {}, weekTotals = {}, weekWalkTotals = {}, curWeekObj = null, curWeekNum = null;
+safe("aggregate", () => {
+  PLAN_WEEKS.forEach(w => { weekTypeTotals[w.week]={}; weekTotals[w.week]=0; weekWalkTotals[w.week]=0; });
+  ENTRIES.forEach(e => {
+    const w = weekForDate(e.date);
+    if (!w) return;
+    if (e.isTraining === false) { weekWalkTotals[w.week] += e.km; return; }
+    weekTypeTotals[w.week][e.type] = (weekTypeTotals[w.week][e.type]||0) + e.km;
+    weekTotals[w.week] += e.km;
+  });
+  Object.keys(weekTotals).forEach(k => weekTotals[k]=Math.round(weekTotals[k]*10)/10);
+  Object.keys(weekWalkTotals).forEach(k => weekWalkTotals[k]=Math.round(weekWalkTotals[k]*10)/10);
+  curWeekObj = currentWeek();
+  curWeekNum = curWeekObj ? curWeekObj.week : null;
+});
+
+// ---- Install banner (only if not already running standalone) ----
+safe("installBanner", () => {
+  const isStandalone = (window.navigator && window.navigator.standalone) ||
+    (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches);
+  if (!isStandalone) {
+    document.getElementById("installBanner").classList.add("show");
+  }
+});
+
+// ---- Stats ----
+safe("stats", () => {
+  const daysToRace = Math.ceil((RACE_DATE - TODAY) / 86400000);
+  const totalRunKm = Object.values(weekTotals).reduce((a,b)=>a+b,0);
+  const curActual = curWeekNum!==null ? weekTotals[curWeekNum] : 0;
+  const curPhase = curWeekObj ? curWeekObj.phase : "-";
+  document.getElementById("statsGrid").innerHTML = `
+    <div class="stat"><div class="label">Days to race</div><div class="value accent">${daysToRace>=0?daysToRace:"Race day!"}</div></div>
+    <div class="stat"><div class="label">Phase</div><div class="value">${curPhase}${curWeekNum?" · Wk "+curWeekNum:""}</div></div>
+    <div class="stat"><div class="label">This week</div><div class="value accent2">${curActual} / ${curWeekObj && curWeekObj.planTotal!==null?curWeekObj.planTotal:"-"} km</div></div>
+    <div class="stat"><div class="label">Total since restart</div><div class="value">${Math.round(totalRunKm*10)/10} km</div></div>
+  `;
+});
+
+// ---- Chart (precomputed static SVG, regenerated by Claude on request) ----
+safe("chart", () => {
+  document.getElementById("chartScroll").innerHTML = `<svg viewBox="0 0 888 350" xmlns="http://www.w3.org/2000/svg" style="min-width:888px">
+<line x1="40" y1="316.0" x2="872" y2="316.0" stroke="#1f222b" stroke-width="1"/>
+<text x="32" y="319.0" fill="#8a8f9c" font-size="9" text-anchor="end" font-family="-apple-system,sans-serif">0</text>
+<line x1="40" y1="273.1" x2="872" y2="273.1" stroke="#1f222b" stroke-width="1"/>
+<text x="32" y="276.1" fill="#8a8f9c" font-size="9" text-anchor="end" font-family="-apple-system,sans-serif">10</text>
+<line x1="40" y1="230.3" x2="872" y2="230.3" stroke="#1f222b" stroke-width="1"/>
+<text x="32" y="233.3" fill="#8a8f9c" font-size="9" text-anchor="end" font-family="-apple-system,sans-serif">20</text>
+<line x1="40" y1="187.4" x2="872" y2="187.4" stroke="#1f222b" stroke-width="1"/>
+<text x="32" y="190.4" fill="#8a8f9c" font-size="9" text-anchor="end" font-family="-apple-system,sans-serif">30</text>
+<line x1="40" y1="144.6" x2="872" y2="144.6" stroke="#1f222b" stroke-width="1"/>
+<text x="32" y="147.6" fill="#8a8f9c" font-size="9" text-anchor="end" font-family="-apple-system,sans-serif">40</text>
+<line x1="40" y1="101.7" x2="872" y2="101.7" stroke="#1f222b" stroke-width="1"/>
+<text x="32" y="104.7" fill="#8a8f9c" font-size="9" text-anchor="end" font-family="-apple-system,sans-serif">50</text>
+<line x1="40" y1="58.9" x2="872" y2="58.9" stroke="#1f222b" stroke-width="1"/>
+<text x="32" y="61.9" fill="#8a8f9c" font-size="9" text-anchor="end" font-family="-apple-system,sans-serif">60</text>
+<line x1="40" y1="16.0" x2="872" y2="16.0" stroke="#1f222b" stroke-width="1"/>
+<text x="32" y="19.0" fill="#8a8f9c" font-size="9" text-anchor="end" font-family="-apple-system,sans-serif">70</text>
+<rect x="48.0" y="296.7" width="16" height="19.3" rx="2" fill="#4fd1c5"/>
+<rect x="68.0" y="55.1" width="9" height="260.9" rx="2" fill="#4a4e58"/>
+<text x="72.5" y="51.1" fill="#6d7280" font-size="7.5" text-anchor="middle" font-family="-apple-system,sans-serif">8.7k</text>
+<text x="66.0" y="332" fill="#8a8f9c" font-size="9" text-anchor="middle" font-family="-apple-system,sans-serif">Restart</text>
+<rect x="100.0" y="271.8" width="16" height="44.2" rx="2" fill="#7fc4ff"/>
+<rect x="120.0" y="140.4" width="9" height="175.6" rx="2" fill="#4a4e58"/>
+<text x="124.5" y="136.4" fill="#6d7280" font-size="7.5" text-anchor="middle" font-family="-apple-system,sans-serif">5.8k</text>
+<text x="118.0" y="332" fill="#8a8f9c" font-size="9" text-anchor="middle" font-family="-apple-system,sans-serif">Wk 1</text>
+<rect x="94" y="16" width="48" height="300" fill="#4fd1c5" opacity="0.06"/>
+<text x="170.0" y="332" fill="#8a8f9c" font-size="9" text-anchor="middle" font-family="-apple-system,sans-serif">Wk 2</text>
+<text x="222.0" y="332" fill="#8a8f9c" font-size="9" text-anchor="middle" font-family="-apple-system,sans-serif">Wk 3</text>
+<text x="274.0" y="332" fill="#8a8f9c" font-size="9" text-anchor="middle" font-family="-apple-system,sans-serif">Wk 4</text>
+<text x="326.0" y="332" fill="#8a8f9c" font-size="9" text-anchor="middle" font-family="-apple-system,sans-serif">Wk 5</text>
+<text x="378.0" y="332" fill="#8a8f9c" font-size="9" text-anchor="middle" font-family="-apple-system,sans-serif">Wk 6</text>
+<text x="430.0" y="332" fill="#8a8f9c" font-size="9" text-anchor="middle" font-family="-apple-system,sans-serif">Wk 7</text>
+<text x="482.0" y="332" fill="#8a8f9c" font-size="9" text-anchor="middle" font-family="-apple-system,sans-serif">Wk 8</text>
+<text x="534.0" y="332" fill="#8a8f9c" font-size="9" text-anchor="middle" font-family="-apple-system,sans-serif">Wk 9</text>
+<text x="586.0" y="332" fill="#8a8f9c" font-size="9" text-anchor="middle" font-family="-apple-system,sans-serif">Wk 10</text>
+<text x="638.0" y="332" fill="#8a8f9c" font-size="9" text-anchor="middle" font-family="-apple-system,sans-serif">Wk 11</text>
+<text x="690.0" y="332" fill="#8a8f9c" font-size="9" text-anchor="middle" font-family="-apple-system,sans-serif">Wk 12</text>
+<text x="742.0" y="332" fill="#8a8f9c" font-size="9" text-anchor="middle" font-family="-apple-system,sans-serif">Wk 13</text>
+<text x="794.0" y="332" fill="#8a8f9c" font-size="9" text-anchor="middle" font-family="-apple-system,sans-serif">Wk 14</text>
+<text x="846.0" y="332" fill="#8a8f9c" font-size="9" text-anchor="middle" font-family="-apple-system,sans-serif">Wk 15</text>
+<path d="M 118.0 221.7 L 170.0 200.3 L 222.0 187.4 L 274.0 221.7 L 326.0 170.3 L 378.0 148.9 L 430.0 131.7 L 482.0 178.9 L 534.0 106.0 L 586.0 80.3 L 638.0 67.4 L 690.0 140.3 L 742.0 170.3 L 794.0 208.9" fill="none" stroke="#ffd166" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="118.0" cy="221.7" r="3" fill="#ffd166"/>
+<circle cx="170.0" cy="200.3" r="3" fill="#ffd166"/>
+<circle cx="222.0" cy="187.4" r="3" fill="#ffd166"/>
+<circle cx="274.0" cy="221.7" r="3" fill="#ffd166"/>
+<circle cx="326.0" cy="170.3" r="3" fill="#ffd166"/>
+<circle cx="378.0" cy="148.9" r="3" fill="#ffd166"/>
+<circle cx="430.0" cy="131.7" r="3" fill="#ffd166"/>
+<circle cx="482.0" cy="178.9" r="3" fill="#ffd166"/>
+<circle cx="534.0" cy="106.0" r="3" fill="#ffd166"/>
+<circle cx="586.0" cy="80.3" r="3" fill="#ffd166"/>
+<circle cx="638.0" cy="67.4" r="3" fill="#ffd166"/>
+<circle cx="690.0" cy="140.3" r="3" fill="#ffd166"/>
+<circle cx="742.0" cy="170.3" r="3" fill="#ffd166"/>
+<circle cx="794.0" cy="208.9" r="3" fill="#ffd166"/>
+</svg>`;
+});
+
+// ---- Legend ----
+safe("legend", () => {
+  const runLegend = TYPE_ORDER.map(t => `<span><span class="dot" style="background:${TYPE_COLORS[t]}"></span>${t[0].toUpperCase()+t.slice(1)}</span>`).join("");
+  const walkLegend = `<span><span class="dot" style="background:${TYPE_COLORS.walk}"></span>Steps that period (own scale, not included in training totals)</span>`;
+  document.getElementById("typeLegend").innerHTML = runLegend + walkLegend;
+});
+
+// ---- Plan table ----
+safe("planTable", () => {
+  document.getElementById("planTableBody").innerHTML = PLAN_WEEKS.map(w => {
+    const rowClass = w.isRaceWeek ? "race-week" : (w.week===curWeekNum ? "current-week" : (w.week<curWeekNum ? "past-week" : ""));
+    const actual = weekTotals[w.week];
+    const dateRange = fmtDate(w.start) + "–" + fmtDate(w.end);
+    if (w.week === 0){
+      return `<tr class="${rowClass}"><td>0</td><td><span class="phase-pill phase-Restart">Restart</span></td><td>${dateRange}</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td><td>${actual}km</td></tr>`;
+    }
+    const dayCell = (d) => {
+      if (!d) return "–";
+      if (d.effort === "RACE") return '<span class="race-tag">RACE 50k</span>';
+      if (d.effort === "rest") return "rest";
+      return `${d.km}km<span class="effort-tag">${d.effort}</span>`;
+    };
+    const cutbackTag = w.cutback ? '<span class="cutback-tag">CUT</span>' : '';
+    const planTotalCell = w.planTotal !== null ? w.planTotal + "km" : "—";
+    return `<tr class="${rowClass}">
+      <td>${w.week}</td>
+      <td><span class="phase-pill phase-${w.phase}">${w.phase}</span>${cutbackTag}</td>
+      <td>${dateRange}</td>
+      <td>${dayCell(w.days.tue)}</td><td>${dayCell(w.days.thu)}</td><td>${dayCell(w.days.fri)}</td><td>${dayCell(w.days.sun)}</td>
+      <td>${planTotalCell}</td><td>${actual}km</td>
+    </tr>`;
+  }).join("");
+});
+
+// ---- Daily log ----
+safe("dailyLog", () => {
+  document.getElementById("dailyTableBody").innerHTML = ENTRIES.slice().reverse().map(e => {
+    const w = weekForDate(e.date);
+    const planDay = planDayFor(w, e.date);
+    let targetCell = "–", deltaCell = "–";
+    if (e.isTraining === false){
+      targetCell = '<span class="effort-tag">n/a</span>';
+      deltaCell = '<span class="effort-tag">–</span>';
+    } else if (planDay && typeof planDay.km === "number"){
+      targetCell = planDay.km + "km" + `<span class="effort-tag">${planDay.effort}</span>`;
+      const delta = Math.round((e.km - planDay.km)*10)/10;
+      deltaCell = delta>=0 ? `<span class="delta-ok">+${delta}</span>` : `<span class="delta-under">${delta}</span>`;
+    } else if (planDay && planDay.effort === "RACE"){
+      targetCell = '<span class="race-tag">RACE</span>';
+    }
+    const paceStr = e.pace ? e.pace.toFixed(2).replace(".",":")+"/km" : "–";
+    return `<tr${e.isTraining===false?' style="opacity:0.6"':''}>
+      <td>${fmtDateFull(e.date)}</td><td>${dayName(e.date)}</td>
+      <td><span class="type-pill type-${e.type}">${e.type}</span></td>
+      <td>${e.km}km</td><td>${paceStr}</td><td>${targetCell}</td><td>${deltaCell}</td>
+    </tr>`;
+  }).join("");
+});
+
+// ---- Surface any failures visibly (better than a silent blank dashboard) ----
+if (failures.length) {
+  errorBanner.style.display = "block";
+  errorBanner.innerHTML = "Some sections failed to load:<br>" + failures.map(f => "• " + f).join("<br>");
+}
+window.addEventListener("error", (ev) => {
+  errorBanner.style.display = "block";
+  errorBanner.innerHTML += (errorBanner.innerHTML ? "<br>" : "") + "• " + ev.message;
+});
+</script>
+
+</body>
+</html>
