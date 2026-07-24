@@ -216,7 +216,7 @@
 </div>
 
 <div class="footnote">
-  Last updated 24 Jul 2026 · refreshed automatically once a day from Strava. Step counts are estimated from recorded cadence (not a real pedometer total).
+  Last updated 25 Jul 2026 · refreshed automatically once a day from Strava. Step counts are estimated from recorded cadence (not a real pedometer total).
 </div>
 
 <script>
@@ -265,11 +265,12 @@ const ENTRIES = [
   { date: "2026-07-17", km: 4.71, type: "trail", pace: 6.28, steps: 4340, isTraining: true, source: "strava" },
   { date: "2026-07-19", km: 8.26, type: "trail", pace: 6.61, steps: null, isTraining: true, source: "strava" },
   { date: "2026-07-21", km: 6.06, type: "hills", pace: 6.63, steps: 5856, isTraining: true, source: "strava" },
-  { date: "2026-07-23", km: 6.17, type: "hills", pace: 6.09, steps: 5622, isTraining: true, source: "strava" }
+  { date: "2026-07-23", km: 6.17, type: "hills", pace: 6.09, steps: 5622, isTraining: true, source: "strava" },
+  { date: "2026-07-24", km: 5.02, type: "hills", pace: 6.28, steps: 4745, isTraining: true, source: "strava" }
 ];
 
 const RACE_DATE = new Date("2026-10-23T00:00:00");
-const TODAY = new Date("2026-07-24T00:00:00"); // date of this snapshot
+const TODAY = new Date("2026-07-25T00:00:00"); // date of this snapshot
 
 const TYPE_COLORS = { trail: "#4fd1c5", hills: "#ff8c42", road: "#7fc4ff", beach: "#ffe066", other: "#c792ea", walk: "#4a4e58" };
 const TYPE_ORDER = ["trail","hills","road","beach","other"];
@@ -364,17 +365,17 @@ safe("chart", () => {
 <line x1="40" y1="16.0" x2="872" y2="16.0" stroke="#1f222b" stroke-width="1"/>
 <text x="32" y="19.0" fill="#8a8f9c" font-size="9" text-anchor="end" font-family="-apple-system,sans-serif">70</text>
 <rect x="48.0" y="296.7" width="16" height="19.3" rx="2" fill="#4fd1c5"/>
-<rect x="68.0" y="118.7" width="9" height="197.3" rx="2" fill="#4a4e58"/>
-<text x="72.5" y="114.7" fill="#6d7280" font-size="7.5" text-anchor="middle" font-family="-apple-system,sans-serif">8.7k</text>
+<rect x="68.0" y="176.4" width="9" height="139.6" rx="2" fill="#4a4e58"/>
+<text x="72.5" y="172.4" fill="#6d7280" font-size="7.5" text-anchor="middle" font-family="-apple-system,sans-serif">8.7k</text>
 <text x="66.0" y="332" fill="#8a8f9c" font-size="9" text-anchor="middle" font-family="-apple-system,sans-serif">Restart</text>
 <rect x="100.0" y="260.4" width="16" height="55.6" rx="2" fill="#4fd1c5"/>
 <rect x="100.0" y="216.2" width="16" height="44.2" rx="2" fill="#7fc4ff"/>
-<rect x="120.0" y="84.5" width="9" height="231.5" rx="2" fill="#4a4e58"/>
-<text x="124.5" y="80.5" fill="#6d7280" font-size="7.5" text-anchor="middle" font-family="-apple-system,sans-serif">10.2k</text>
+<rect x="120.0" y="152.2" width="9" height="163.8" rx="2" fill="#4a4e58"/>
+<text x="124.5" y="148.2" fill="#6d7280" font-size="7.5" text-anchor="middle" font-family="-apple-system,sans-serif">10.2k</text>
 <text x="118.0" y="332" fill="#8a8f9c" font-size="9" text-anchor="middle" font-family="-apple-system,sans-serif">Wk 1</text>
-<rect x="152.0" y="263.6" width="16" height="52.4" rx="2" fill="#ff8c42"/>
+<rect x="152.0" y="242.1" width="16" height="73.9" rx="2" fill="#ff8c42"/>
 <rect x="172.0" y="55.1" width="9" height="260.9" rx="2" fill="#4a4e58"/>
-<text x="176.5" y="51.1" fill="#6d7280" font-size="7.5" text-anchor="middle" font-family="-apple-system,sans-serif">11.5k</text>
+<text x="176.5" y="51.1" fill="#6d7280" font-size="7.5" text-anchor="middle" font-family="-apple-system,sans-serif">16.2k</text>
 <text x="170.0" y="332" fill="#8a8f9c" font-size="9" text-anchor="middle" font-family="-apple-system,sans-serif">Wk 2</text>
 <rect x="146" y="16" width="48" height="300" fill="#4fd1c5" opacity="0.06"/>
 <text x="222.0" y="332" fill="#8a8f9c" font-size="9" text-anchor="middle" font-family="-apple-system,sans-serif">Wk 3</text>
