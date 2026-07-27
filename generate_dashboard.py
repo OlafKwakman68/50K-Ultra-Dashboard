@@ -59,12 +59,15 @@ PLAN_WEEKS = [
 ]
 
 TYPE_COLORS = {"trail": "#4fd1c5", "hills": "#ff8c42", "road": "#7fc4ff",
-                "beach": "#ffe066", "other": "#c792ea", "walk": "#4a4e58"}
-TYPE_ORDER = ["trail", "hills", "road", "beach", "other"]
+                "beach": "#ffe066", "treadmill": "#c792ea", "walk": "#4a4e58"}
+TYPE_ORDER = ["trail", "hills", "road", "beach", "treadmill"]
 
 # ---- Manual corrections (carried forward from the dashboard's build history) ----
 TYPE_OVERRIDES = {
     "2026-07-14": "road",
+    # 16 Jul: was actually run on a treadmill (Olaf confirmed) — Strava's data for
+    # this one has nonzero elevation/max_speed so the auto-heuristic missed it.
+    "2026-07-16": "treadmill",
 }
 SPLIT_OVERRIDES = {
     # 12 Jul: single 8.75km Strava activity was 4.5km trail + ~4.25km walking.
@@ -99,6 +102,15 @@ def classify_type(activity):
     summary = activity.get("summary") or {}
     dist_km = (summary.get("distance") or 0) / 1000
     elev = summary.get("elevation_gain") or 0
+    # Treadmill: explicit name match, Strava's own trainer flag, or the classic
+    # indoor signature of zero elevation gain + zero max speed (no GPS fix).
+    if "treadmill" in text or "tread mill" in text:
+        return "treadmill"
+    if activity.get("is_trainer"):
+        return "treadmill"
+    max_speed = summary.get("max_speed") or 0
+    if dist_km > 0 and elev == 0 and max_speed == 0:
+        return "treadmill"
     if dist_km > 0 and (elev / dist_km) >= 15:
         return "hills"
     return "road"

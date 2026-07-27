@@ -151,6 +151,7 @@
   .type-hills { background: #ff8c42; color: #0b0d12; }
   .type-road  { background: #7fc4ff; color: #0b0d12; }
   .type-beach { background: #ffe066; color: #0b0d12; }
+  .type-treadmill { background: #c792ea; color: #0b0d12; }
   .type-walk  { background: #4a4e58; color: #c7cad2; }
   .cutback-tag { margin-left: 5px; font-size: 9px; color: #ffd166; font-weight: 700; }
   .effort-tag { font-size: 9px; color: #8a8f9c; font-style: italic; margin-left: 3px; }
@@ -261,8 +262,8 @@ const ENTRIES = __ENTRIES_JSON__;
 const RACE_DATE = new Date("2026-10-23T00:00:00");
 const TODAY = new Date("__TODAY_ISO__"); // date of this snapshot
 
-const TYPE_COLORS = { trail: "#4fd1c5", hills: "#ff8c42", road: "#7fc4ff", beach: "#ffe066", other: "#c792ea", walk: "#4a4e58" };
-const TYPE_ORDER = ["trail","hills","road","beach","other"];
+const TYPE_COLORS = { trail: "#4fd1c5", hills: "#ff8c42", road: "#7fc4ff", beach: "#ffe066", treadmill: "#c792ea", walk: "#4a4e58" };
+const TYPE_ORDER = ["trail","hills","road","beach","treadmill"];
 
 function fmtDate(iso){ const d=new Date(iso+"T00:00:00"); return d.toLocaleDateString(undefined,{month:"short",day:"numeric"}); }
 function fmtDateFull(iso){ const d=new Date(iso+"T00:00:00"); return d.toLocaleDateString(undefined,{month:"short",day:"numeric",year:"numeric"}); }
