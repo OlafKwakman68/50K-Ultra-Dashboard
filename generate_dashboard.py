@@ -65,9 +65,8 @@ TYPE_ORDER = ["trail", "hills", "road", "beach", "treadmill"]
 # ---- Manual corrections (carried forward from the dashboard's build history) ----
 TYPE_OVERRIDES = {
     "2026-07-14": "road",
-    # 16 Jul: was actually run on a treadmill (Olaf confirmed) — Strava's data for
-    # this one has nonzero elevation/max_speed so the auto-heuristic missed it.
-    "2026-07-16": "treadmill",
+    # 16 Jul: confirmed a genuine road run (also labeled that way on Strava) —
+    # do NOT reclassify this one; leaving no override so it falls through to "road".
 }
 SPLIT_OVERRIDES = {
     # 12 Jul: single 8.75km Strava activity was 4.5km trail + ~4.25km walking.
@@ -99,20 +98,19 @@ def classify_type(activity):
         return "beach"
     if "hill" in text:
         return "hills"
-    summary = activity.get("summary") or {}
-    dist_km = (summary.get("distance") or 0) / 1000
-    elev = summary.get("elevation_gain") or 0
-    # Treadmill: explicit name match, Strava's own trainer flag, or the classic
-    # indoor signature of zero elevation gain + zero max speed (no GPS fix).
+    # Treadmill: explicit name match or Strava's own trainer flag only.
     if "treadmill" in text or "tread mill" in text:
         return "treadmill"
     if activity.get("is_trainer"):
         return "treadmill"
-    max_speed = summary.get("max_speed") or 0
-    if dist_km > 0 and elev == 0 and max_speed == 0:
-        return "treadmill"
-    if dist_km > 0 and (elev / dist_km) >= 15:
-        return "hills"
+    # NOTE: classification relies only on Strava's own labels (name, description,
+    # sport_type, trainer flag) plus manual TYPE_OVERRIDES/SPLIT_OVERRIDES for dates
+    # Olaf has corrected by hand. We deliberately do NOT infer terrain from recorded
+    # elevation gain, max speed, or GPS signal — Olaf's watch doesn't always record
+    # elevation reliably, and that heuristic previously produced false positives
+    # (guessed "hills" for several genuine road runs on 21/23/24 Jul, and would do
+    # the same for "treadmill" on any outdoor run with a flaky GPS/elevation fix).
+    # "hills" only comes from an explicit name match above, or a TYPE_OVERRIDES entry.
     return "road"
 
 

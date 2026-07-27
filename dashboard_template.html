@@ -217,7 +217,7 @@
 </div>
 
 <div class="footnote">
-  Last updated __LAST_UPDATED__ · refreshed automatically once a day from Strava. Step counts are estimated from recorded cadence (not a real pedometer total).
+  Last updated __LAST_UPDATED__ · refreshed automatically once a day from Strava. Workout steps are estimated from recorded cadence during tracked activities only (not a full daily pedometer total).
 </div>
 
 <script>
@@ -343,7 +343,7 @@ safe("chart", () => {
 // ---- Legend ----
 safe("legend", () => {
   const runLegend = TYPE_ORDER.map(t => `<span><span class="dot" style="background:${TYPE_COLORS[t]}"></span>${t[0].toUpperCase()+t.slice(1)}</span>`).join("");
-  const walkLegend = `<span><span class="dot" style="background:${TYPE_COLORS.walk}"></span>Steps that period (own scale, not included in training totals)</span>`;
+  const walkLegend = `<span><span class="dot" style="background:${TYPE_COLORS.walk}"></span>Workout steps that week (own scale; estimated from tracked activities only, not a full daily step count)</span>`;
   document.getElementById("typeLegend").innerHTML = runLegend + walkLegend;
 });
 
