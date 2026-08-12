@@ -16,7 +16,7 @@ pages' activities into one list before writing activities.json)
 
 This script encodes all the manual decisions made while building the
 dashboard so a scheduled run doesn't have to re-derive them:
-  - sport_type "Run", "Workout", or "TrailRun" -> counts as training km
+  - sport_type "Run" or "Workout"  -> counts as training km
   - sport_type "Walk"              -> shown, but never counts as training km
   - sport_type "Hike" (or anything else) -> excluded entirely
   - TYPE_OVERRIDES / SPLIT_OVERRIDES -> manual terrain-type corrections for
@@ -146,7 +146,7 @@ def build_entries(activities):
                              "pace": None, "isTraining": False, "source": "strava"})
             continue
 
-        if sport not in ("Run", "Workout", "TrailRun"):
+        if sport not in ("Run", "Workout"):
             continue  # Hike and anything else: excluded entirely
 
         split = SPLIT_OVERRIDES.get(date_str)
