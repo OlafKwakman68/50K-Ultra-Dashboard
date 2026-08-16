@@ -1,0 +1,59 @@
+name: Daily dashboard refresh
+
+on:
+  schedule:
+    # 22:13 UTC = 06:13 Perth time (AWST, UTC+8, no DST) -- early morning,
+    # so the previous day's training is reflected before Olaf's day starts.
+    # Off the hour/half-hour on purpose to avoid scheduler pile-ups.
+    - cron: "13 22 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install garminconnect
+
+      - name: Write Garmin token
+        env:
+          GARMIN_OAUTH1_TOKEN: ${{ secrets.GARMIN_OAUTH1_TOKEN }}
+          GARMIN_OAUTH2_TOKEN: ${{ secrets.GARMIN_OAUTH2_TOKEN }}
+        run: |
+          mkdir -p garmin_tokens
+          printf '%s' "$GARMIN_OAUTH1_TOKEN" > garmin_tokens/oauth1_token.json
+          printf '%s' "$GARMIN_OAUTH2_TOKEN" > garmin_tokens/oauth2_token.json
+
+      - name: Fetch activities and regenerate dashboard
+        run: |
+          python3 fetch_garmin_activities.py \
+            --token-dir garmin_tokens \
+            --start 2026-07-06 \
+            --end 2026-10-26 \
+            --out activities.json
+          python3 generate_dashboard.py activities.json
+
+      - name: Clean up token files
+        if: always()
+        run: rm -rf garmin_tokens activities.json
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if git diff --quiet -- index.html; then
+            echo "No changes to index.html, nothing to commit."
+          else
+            git add index.html
+            git commit -m "Daily refresh $(date -u +%Y-%m-%d)"
+            git push
+          fi
