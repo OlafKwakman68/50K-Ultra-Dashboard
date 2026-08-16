@@ -217,7 +217,7 @@
 </div>
 
 <div class="footnote">
-  Last updated 14 Aug 2026 · refreshed automatically once a day from Strava. Workout steps are estimated from recorded cadence during tracked activities only (not a full daily pedometer total).
+  Last updated 16 Aug 2026 · refreshed automatically once a day from Strava. Workout steps are estimated from recorded cadence during tracked activities only (not a full daily pedometer total).
 </div>
 
 <script>
@@ -259,27 +259,30 @@ const PLAN_WEEKS = [
 // Individual runs/walks logged so far (baked-in snapshot from Strava + manual entries)
 const ENTRIES = [
   { date: "2026-07-11", km: 4.2, type: "walk", pace: null, steps: null, isTraining: false, source: "manual" },
-  { date: "2026-07-12", km: 4.5, type: "trail", pace: 8.2, steps: 8680, isTraining: true, source: "strava" },
+  { date: "2026-07-12", km: 4.5, type: "trail", pace: 8.18, steps: 8579, isTraining: true, source: "strava" },
   { date: "2026-07-14", km: 5.26, type: "road", pace: 6.47, steps: null, isTraining: true, source: "strava" },
-  { date: "2026-07-15", km: 5.46, type: "walk", pace: null, steps: 5844, isTraining: false, source: "strava" },
+  { date: "2026-07-15", km: 5.46, type: "walk", pace: null, steps: 5553, isTraining: false, source: "strava" },
   { date: "2026-07-16", km: 5.06, type: "road", pace: 6.14, steps: null, isTraining: true, source: "strava" },
-  { date: "2026-07-17", km: 4.71, type: "trail", pace: 6.28, steps: 4340, isTraining: true, source: "strava" },
-  { date: "2026-07-19", km: 8.26, type: "trail", pace: 6.61, steps: null, isTraining: true, source: "strava" },
-  { date: "2026-07-21", km: 6.06, type: "road", pace: 6.63, steps: 5856, isTraining: true, source: "strava" },
-  { date: "2026-07-23", km: 6.17, type: "road", pace: 6.09, steps: 5622, isTraining: true, source: "strava" },
-  { date: "2026-07-24", km: 5.02, type: "road", pace: 6.28, steps: 4745, isTraining: true, source: "strava" },
-  { date: "2026-07-25", km: 10.0, type: "treadmill", pace: 6.6, steps: null, isTraining: true, source: "strava" },
-  { date: "2026-07-30", km: 7.06, type: "road", pace: 6.19, steps: 6577, isTraining: true, source: "strava" },
-  { date: "2026-07-31", km: 5.45, type: "road", pace: 6.29, steps: 5139, isTraining: true, source: "strava" },
-  { date: "2026-08-04", km: 5.54, type: "road", pace: 5.8, steps: 4912, isTraining: true, source: "strava" },
-  { date: "2026-08-06", km: 5.54, type: "road", pace: 6.26, steps: 5172, isTraining: true, source: "strava" },
-  { date: "2026-08-07", km: 3.89, type: "road", pace: 5.88, steps: 3504, isTraining: true, source: "strava" },
-  { date: "2026-08-11", km: 7.03, type: "road", pace: 6.14, steps: 6544, isTraining: true, source: "strava" },
-  { date: "2026-08-13", km: 8.31, type: "road", pace: 6.03, steps: 7619, isTraining: true, source: "strava" }
+  { date: "2026-07-17", km: 4.71, type: "road", pace: 6.27, steps: 4331, isTraining: true, source: "strava" },
+  { date: "2026-07-19", km: 8.26, type: "road", pace: 6.61, steps: null, isTraining: true, source: "strava" },
+  { date: "2026-07-21", km: 6.07, type: "road", pace: 6.61, steps: 5781, isTraining: true, source: "strava" },
+  { date: "2026-07-23", km: 6.18, type: "road", pace: 6.07, steps: 5637, isTraining: true, source: "strava" },
+  { date: "2026-07-24", km: 5.02, type: "road", pace: 6.27, steps: 4753, isTraining: true, source: "strava" },
+  { date: "2026-07-28", km: 7.1, type: "road", pace: 6.24, steps: 6605, isTraining: true, source: "strava" },
+  { date: "2026-07-30", km: 7.06, type: "road", pace: 6.18, steps: 6591, isTraining: true, source: "strava" },
+  { date: "2026-07-31", km: 5.45, type: "road", pace: 6.28, steps: 5149, isTraining: true, source: "strava" },
+  { date: "2026-08-02", km: 12.07, type: "road", pace: 6.55, steps: 11807, isTraining: true, source: "strava" },
+  { date: "2026-08-04", km: 5.54, type: "road", pace: 5.79, steps: 4920, isTraining: true, source: "strava" },
+  { date: "2026-08-06", km: 5.54, type: "road", pace: 6.25, steps: 5180, isTraining: true, source: "strava" },
+  { date: "2026-08-07", km: 3.89, type: "road", pace: 5.88, steps: 3506, isTraining: true, source: "strava" },
+  { date: "2026-08-09", km: 8.49, type: "road", pace: 6.11, steps: 7924, isTraining: true, source: "strava" },
+  { date: "2026-08-11", km: 7.03, type: "road", pace: 6.13, steps: 6556, isTraining: true, source: "strava" },
+  { date: "2026-08-13", km: 8.31, type: "road", pace: 6.03, steps: 7635, isTraining: true, source: "strava" },
+  { date: "2026-08-14", km: 5.37, type: "road", pace: 5.9, steps: 4834, isTraining: true, source: "strava" }
 ];
 
 const RACE_DATE = new Date("2026-10-23T00:00:00");
-const TODAY = new Date("2026-08-14T00:00:00"); // date of this snapshot
+const TODAY = new Date("2026-08-16T00:00:00"); // date of this snapshot
 
 const TYPE_COLORS = { trail: "#4fd1c5", hills: "#ff8c42", road: "#7fc4ff", beach: "#ffe066", treadmill: "#c792ea", walk: "#4a4e58" };
 const TYPE_ORDER = ["trail","hills","road","beach","treadmill"];
@@ -374,30 +377,28 @@ safe("chart", () => {
 <line x1="40" y1="16.0" x2="872" y2="16.0" stroke="#1f222b" stroke-width="1"/>
 <text x="32" y="19.0" fill="#8a8f9c" font-size="9" text-anchor="end" font-family="-apple-system,sans-serif">70</text>
 <rect x="48.0" y="296.7" width="16" height="19.3" rx="2" fill="#4fd1c5"/>
-<rect x="68.0" y="176.4" width="9" height="139.6" rx="2" fill="#4a4e58"/>
-<text x="72.5" y="172.4" fill="#6d7280" font-size="7.5" text-anchor="middle" font-family="-apple-system,sans-serif">8.7k</text>
+<rect x="68.0" y="241.8" width="9" height="74.2" rx="2" fill="#4a4e58"/>
+<text x="72.5" y="237.8" fill="#6d7280" font-size="7.5" text-anchor="middle" font-family="-apple-system,sans-serif">8.6k</text>
 <text x="66.0" y="332" fill="#8a8f9c" font-size="9" text-anchor="middle" font-family="-apple-system,sans-serif">Restart</text>
-<rect x="100.0" y="260.4" width="16" height="55.6" rx="2" fill="#4fd1c5"/>
-<rect x="100.0" y="216.2" width="16" height="44.2" rx="2" fill="#7fc4ff"/>
-<rect x="120.0" y="152.2" width="9" height="163.8" rx="2" fill="#4a4e58"/>
-<text x="124.5" y="148.2" fill="#6d7280" font-size="7.5" text-anchor="middle" font-family="-apple-system,sans-serif">10.2k</text>
+<rect x="100.0" y="216.2" width="16" height="99.8" rx="2" fill="#7fc4ff"/>
+<rect x="120.0" y="230.5" width="9" height="85.5" rx="2" fill="#4a4e58"/>
+<text x="124.5" y="226.5" fill="#6d7280" font-size="7.5" text-anchor="middle" font-family="-apple-system,sans-serif">9.9k</text>
 <text x="118.0" y="332" fill="#8a8f9c" font-size="9" text-anchor="middle" font-family="-apple-system,sans-serif">Wk 1</text>
-<rect x="152.0" y="242.1" width="16" height="73.9" rx="2" fill="#7fc4ff"/>
-<rect x="152.0" y="199.2" width="16" height="42.9" rx="2" fill="#c792ea"/>
-<rect x="172.0" y="55.1" width="9" height="260.9" rx="2" fill="#4a4e58"/>
-<text x="176.5" y="51.1" fill="#6d7280" font-size="7.5" text-anchor="middle" font-family="-apple-system,sans-serif">16.2k</text>
+<rect x="152.0" y="242.0" width="16" height="74.0" rx="2" fill="#7fc4ff"/>
+<rect x="172.0" y="176.1" width="9" height="139.9" rx="2" fill="#4a4e58"/>
+<text x="176.5" y="172.1" fill="#6d7280" font-size="7.5" text-anchor="middle" font-family="-apple-system,sans-serif">16.2k</text>
 <text x="170.0" y="332" fill="#8a8f9c" font-size="9" text-anchor="middle" font-family="-apple-system,sans-serif">Wk 2</text>
-<rect x="204.0" y="262.4" width="16" height="53.6" rx="2" fill="#7fc4ff"/>
-<rect x="224.0" y="127.6" width="9" height="188.4" rx="2" fill="#4a4e58"/>
-<text x="228.5" y="123.6" fill="#6d7280" font-size="7.5" text-anchor="middle" font-family="-apple-system,sans-serif">11.7k</text>
+<rect x="204.0" y="180.2" width="16" height="135.8" rx="2" fill="#7fc4ff"/>
+<rect x="224.0" y="55.1" width="9" height="260.9" rx="2" fill="#4a4e58"/>
+<text x="228.5" y="51.1" fill="#6d7280" font-size="7.5" text-anchor="middle" font-family="-apple-system,sans-serif">30.2k</text>
 <text x="222.0" y="332" fill="#8a8f9c" font-size="9" text-anchor="middle" font-family="-apple-system,sans-serif">Wk 3</text>
-<rect x="256.0" y="251.8" width="16" height="64.2" rx="2" fill="#7fc4ff"/>
-<rect x="276.0" y="97.5" width="9" height="218.5" rx="2" fill="#4a4e58"/>
-<text x="280.5" y="93.5" fill="#6d7280" font-size="7.5" text-anchor="middle" font-family="-apple-system,sans-serif">13.6k</text>
+<rect x="256.0" y="215.5" width="16" height="100.5" rx="2" fill="#7fc4ff"/>
+<rect x="276.0" y="129.7" width="9" height="186.3" rx="2" fill="#4a4e58"/>
+<text x="280.5" y="125.7" fill="#6d7280" font-size="7.5" text-anchor="middle" font-family="-apple-system,sans-serif">21.5k</text>
 <text x="274.0" y="332" fill="#8a8f9c" font-size="9" text-anchor="middle" font-family="-apple-system,sans-serif">Wk 4</text>
-<rect x="308.0" y="250.3" width="16" height="65.7" rx="2" fill="#7fc4ff"/>
-<rect x="328.0" y="88.3" width="9" height="227.7" rx="2" fill="#4a4e58"/>
-<text x="332.5" y="84.3" fill="#6d7280" font-size="7.5" text-anchor="middle" font-family="-apple-system,sans-serif">14.2k</text>
+<rect x="308.0" y="227.2" width="16" height="88.8" rx="2" fill="#7fc4ff"/>
+<rect x="328.0" y="151.4" width="9" height="164.6" rx="2" fill="#4a4e58"/>
+<text x="332.5" y="147.4" fill="#6d7280" font-size="7.5" text-anchor="middle" font-family="-apple-system,sans-serif">19k</text>
 <text x="326.0" y="332" fill="#8a8f9c" font-size="9" text-anchor="middle" font-family="-apple-system,sans-serif">Wk 5</text>
 <rect x="302" y="16" width="48" height="300" fill="#4fd1c5" opacity="0.06"/>
 <text x="378.0" y="332" fill="#8a8f9c" font-size="9" text-anchor="middle" font-family="-apple-system,sans-serif">Wk 6</text>
