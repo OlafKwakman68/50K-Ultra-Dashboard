@@ -41,8 +41,30 @@ Sport-type mapping decisions (confirmed with Olaf on 2026-08-16):
 import argparse
 import json
 import sys
+import time
 
 from garminconnect import Garmin
+
+LOGIN_RETRY_DELAYS_S = (30, 90, 240)  # backoff for transient 429s/5xxs on Garmin's side
+
+
+def login_with_retry(client: Garmin, token_dir: str):
+    last_err = None
+    for attempt, delay in enumerate((0,) + LOGIN_RETRY_DELAYS_S):
+        if delay:
+            print(f"Retrying Garmin login in {delay}s (attempt {attempt + 1})...", file=sys.stderr)
+            time.sleep(delay)
+        try:
+            client.login(token_dir)
+            return
+        except Exception as e:
+            last_err = e
+            status = getattr(getattr(e, "response", None), "status_code", None)
+            transient = status in (429, 500, 502, 503, 504) or status is None and "429" in str(e)
+            print(f"Garmin login attempt failed: {type(e).__name__}: {e}", file=sys.stderr)
+            if not transient:
+                break
+    raise last_err
 
 SPORT_MAP = {
     "running": "Run",
@@ -105,9 +127,9 @@ def main():
 
     client = Garmin()
     try:
-        client.login(args.token_dir)
+        login_with_retry(client, args.token_dir)
     except Exception as e:
-        print(f"Garmin login (token load) failed: {type(e).__name__}: {e}", file=sys.stderr)
+        print(f"Garmin login (token load) failed after retries: {type(e).__name__}: {e}", file=sys.stderr)
         sys.exit(1)
 
     raw_activities = client.get_activities_by_date(args.start, args.end)
