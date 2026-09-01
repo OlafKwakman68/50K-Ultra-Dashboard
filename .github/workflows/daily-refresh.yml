@@ -48,6 +48,23 @@ jobs:
             --out activities.json
           python3 generate_dashboard.py activities.json
 
+      - name: Persist refreshed Garmin token
+        # The garminconnect library auto-refreshes the DI token and rewrites
+        # garmin_tokens/garmin_tokens.json on disk whenever it's close to
+        # expiry -- but we were discarding that refreshed copy every run and
+        # always re-feeding the same static, aging original from the secret.
+        # That's what caused the token to go dead after ~4 days (2026-08-23)
+        # even though the workflow itself was fine. Writing the (possibly
+        # refreshed) token back to the secret after every successful run
+        # lets it keep renewing itself indefinitely instead of aging out.
+        if: success()
+        env:
+          GH_TOKEN: ${{ secrets.REPO_ADMIN_TOKEN }}
+        run: |
+          gh secret set GARMIN_TOKEN_JSON \
+            --repo "${{ github.repository }}" \
+            --body "$(cat garmin_tokens/garmin_tokens.json)"
+
       - name: Clean up token files
         if: always()
         run: rm -rf garmin_tokens activities.json
